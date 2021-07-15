@@ -192,3 +192,39 @@ body {
 .align-right {                                 
   text-align: right;
 }
+/* -------------------------------БЛОК textarea (right footer)----------------------------------- */
+.chat .chat-message {                            
+  padding: 30px;
+  background: #6A6C75;                          
+  border-bottom-right-radius: 10px;             
+}
+
+.chat .chat-message textarea {                   
+  width: 100%;                                   
+  padding: 10px 20px;                            
+  margin-bottom: 10px;                           
+  border-radius: 5px;                            
+  background: #53F3E3;                          
+  color: DarkBlue;                              
+  font: 18px/22px "Lato", Arial, sans-serif;    
+  resize: none;                                 
+}
+
+.chat .chat-message button {                     
+  float: right;                                  
+  color: #40e0d0;                              
+  font-size: 16px;                              
+  text-transform: uppercase;                    
+  border: none;                                 
+  cursor: pointer;                              
+  font-weight: bold;                           
+  background: #6A6C75;                       
+}
+
+.chat .chat-message button:hover {               
+  color: #0000FF;                                
+  -webkit-transform: scale(1.2);                 
+}
+.chat .chat-message button:active {           
+ color: #01a715;
+}
