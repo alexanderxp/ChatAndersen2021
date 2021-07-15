@@ -228,3 +228,65 @@ body {
 .chat .chat-message button:active {           
  color: #01a715;
 }
+/* ------------------------ДАЛЕЕ СТИЛИЗАЦИЯ ИКОНОК FONT-AWESOME---------------------------------- : */
+.people-list .fa-comment-o {                       
+  position: relative;
+  right: -40px;                                  
+  font-size: 40px;
+  color: #40e0d0; 
+  margin-top: 8px ;
+}
+
+ .people-list .fa-cog {                       
+  position: relative;
+  right: -100px;                                 
+  font-size: 40px;
+  color: #40e0d0; 
+  margin-top: 10px ;
+}
+
+.chat .chat-header .fa-star {                 
+  float: right;
+  color: Aqua;
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+.fa-star {									                
+cursor: pointer;								             
+}
+
+.chat .fa-star:active{
+  color: MediumBlue;
+}
+
+.chat .chat-message .fa-paperclip, .chat .chat-message .fa-file-image-o {    
+  font-size: 18px;
+  color: #53F3E3;                               
+  cursor: pointer;                            
+}
+
+.chat .chat-message .fa-paperclip:active{
+  color: MediumBlue;
+}
+
+.chat .chat-message .fa-file-image-o:active{
+  color: MediumBlue;
+}
+
+.online {									                       
+  color: #86BB71;                              
+}
+
+.offline {								                  
+  color: #E38968;						  	           
+}
+
+.me {											                
+  color: #86BB71;							          
+}
+
+.online, .offline, .me {						     
+  margin-right: 5px;
+  font-size: 8px;
+}
