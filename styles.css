@@ -115,25 +115,25 @@ body {
   color: #40E0D0;
 }
 /* -------------------------------ХЕДЕР ЧАТА (ПРАВЫЙ ХЕДЕР)------------------------------------------ */
-.chat .chat-header .chat-about {				       /* отступы текста в хедере истории чатов */
-  float: left;                                 /* левее , ближе к аватарке */
-  padding-left: 20px;                          /* левое расстояние от аватарки до текста */
-  margin-top: 6px;                             /* отступ текста от верхнего края блока хедера */
+.chat .chat-header .chat-about {				       
+  float: left;                                 
+  padding-left: 20px;                          
+  margin-top: 6px;                             
 }
 
-.chat .chat-history {                          /* характеристики окна истории чатов */
+.chat .chat-history {                          
   padding: 30px 30px 20px;
-  border-bottom: 2px solid white;              /* нижняя граница между историей чатов и textarea */
-  overflow-y: scroll;                          /* добавление бегунка */
-  height: 512px;                               /*  высота истории чата   */ 
-  width: 490px;                                /* ширина блока истории чата */
+  border-bottom: 2px solid white;              
+  overflow-y: scroll;                          
+  height: 512px;                               
+  width: 490px;                                
 }
 
-.clearfix:after {                              /* характеристики основного блока пользователей  */
-  visibility: hidden;                          /* ничего */
-  display: block;                              /* отображать как блок */
-  font-size: 0;                                /* ничего */
-  content: " ";                                /* так виден фон блока пользователей */
-  clear: both;                                 /* так виден фон блока пользователей */
-  height: 0;                                   /* ничего */
+.clearfix:after {                              
+  visibility: hidden;                          
+  display: block;                              
+  font-size: 0;                                
+  content: " ";                                
+  clear: both;                                 
+  height: 0;                                   
 }
