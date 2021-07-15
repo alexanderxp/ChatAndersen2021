@@ -295,3 +295,34 @@ cursor: pointer;
 ::-webkit-scrollbar-button           { background-color: #6A6C75; }                                   
 ::-webkit-scrollbar-track-piece      { background-color: #40E0D0;}                                    
 ::-webkit-scrollbar-thumb            { height: 50px; background-color: #6A6C75; border-radius: 5px;}  
+/* ------------------------ ПРАВОЕ МЕНЮ КНОПОК ---------------------------------------- */
+input[type='radio']{
+  display: none;                             /*  скрывает радио-кнопки */
+}
+
+label.threebuttons {                           /* блок с кнопками переключения  */ 
+  display: inline-block;                     /* БЛОКИ РАЗМЕЩЕНЫ В ЛИНИЮ разъезжается без этого стиля  */ 
+  padding : 33px 70px 33px 70px;             /* размеры гвнешних границ иконок-кнопок  */
+  color : #40E0D0;                           /* цвет иконок-кнопок  */ 
+  font-size: 22px;                           /* величина шрифта иконок-кнопок  */ 
+  background: #6A6C75;                       /* цвет фона иконок-кнопок  */ 
+  border-radius: 10px;                       /* скорректировал верхний округлый угол */
+  border-top-left-radius: 10px;              /* скорректировал верхний округлый угол */
+  border: 2px solid white;
+}	
+
+label.threebuttons:hover{
+  color: #0000FF;                             /* цвет при наведении мышкой на иконки-кнопки */
+}
+
+label.threebuttons:hover{
+background : #333333;                   /*  фон блока при наведения на блок кнопки-иконки */
+}
+
+label[for='two'].threebuttons , label[for='three'].threebuttons{
+  margin-left: -4px;                          /*  выравникание блоков-кнопок  */
+}
+
+input[type='radio']:checked + label{
+  color: #00CD0A;                              /*  цвет активной кнопки-иконки */        
+}
