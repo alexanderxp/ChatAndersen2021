@@ -297,32 +297,32 @@ cursor: pointer;
 ::-webkit-scrollbar-thumb            { height: 50px; background-color: #6A6C75; border-radius: 5px;}  
 /* ------------------------ ПРАВОЕ МЕНЮ КНОПОК ---------------------------------------- */
 input[type='radio']{
-  display: none;                             /*  скрывает радио-кнопки */
+  display: none;                             
 }
 
-label.threebuttons {                           /* блок с кнопками переключения  */ 
-  display: inline-block;                     /* БЛОКИ РАЗМЕЩЕНЫ В ЛИНИЮ разъезжается без этого стиля  */ 
-  padding : 33px 70px 33px 70px;             /* размеры гвнешних границ иконок-кнопок  */
-  color : #40E0D0;                           /* цвет иконок-кнопок  */ 
-  font-size: 22px;                           /* величина шрифта иконок-кнопок  */ 
-  background: #6A6C75;                       /* цвет фона иконок-кнопок  */ 
-  border-radius: 10px;                       /* скорректировал верхний округлый угол */
-  border-top-left-radius: 10px;              /* скорректировал верхний округлый угол */
+label.threebuttons {                          
+  display: inline-block;                    
+  padding : 33px 70px 33px 70px;            
+  color : #40E0D0;                      
+  font-size: 22px;                        
+  background: #6A6C75;                    
+  border-radius: 10px;                     
+  border-top-left-radius: 10px;            
   border: 2px solid white;
 }	
 
 label.threebuttons:hover{
-  color: #0000FF;                             /* цвет при наведении мышкой на иконки-кнопки */
+  color: #0000FF;                          
 }
 
 label.threebuttons:hover{
-background : #333333;                   /*  фон блока при наведения на блок кнопки-иконки */
+background : #333333;                 
 }
 
 label[for='two'].threebuttons , label[for='three'].threebuttons{
-  margin-left: -4px;                          /*  выравникание блоков-кнопок  */
+  margin-left: -4px;                      
 }
 
 input[type='radio']:checked + label{
-  color: #00CD0A;                              /*  цвет активной кнопки-иконки */        
+  color: #00CD0A;                           
 }
