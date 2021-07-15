@@ -326,3 +326,67 @@ label[for='two'].threebuttons , label[for='three'].threebuttons{
 input[type='radio']:checked + label{
   color: #00CD0A;                           
 }
+/* ------------------------ отображение новых непрочитанных сообщений ---------------------------------------- */
+
+.come_message {
+	float: left; 
+	margin-left: 150px  ;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+}
+
+.countMe {
+  position: absolute;       
+  height:16px;
+  width: 26px;
+  top: 32px;                      /* отступ сверху до окружности */
+  left: 60px;                     /* отступ слева до окружности */
+  font-size: 15px;                /* размер шрифта */
+  border: 4px solid #6A6C75;      /* серый цвет границы */
+  border-radius: 55px;            /* округлые углы */
+  padding-left:  1px;             /* отступы от числа до границы окружноти */
+  padding-right:  1px; 
+  padding-top:  1px; 
+  padding-bottom:  18px; 
+  margin: 2px;
+  background-color: yellow;       /* фон окружности */
+  font-family:  'bowlby-one';
+  color: grey;
+}
+/* ------------------------ отображения информации о введенном сообщении ---------------------------------------- */
+.messageinfo { 
+  margin-left: 20px;
+  width: 280px;
+}
+
+.displaysympols { 
+  display: block;
+  float:right;
+  color: yellow;
+}
+
+.displayletters { 
+  display: block;
+  float:right;
+  color: yellow;
+}
+
+.displayspaces { 
+  display: block;
+  float:right;
+  color: yellow;
+}
+
+.displaypunctuation { 
+  display: block;
+  float:right;
+  color: yellow;
+}
+/* ------------------------ отображение общего количества пользователей онлайн ---------------------------------------- */
+.onlinemembers {
+	margin-top: 101px;
+	margin-left: 84px;
+	color: yellow;
+	margin-bottom: 5px;
+}
