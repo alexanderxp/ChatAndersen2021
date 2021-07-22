@@ -118,4 +118,11 @@ void function () {
 
   });
 
+  // получает пользователей в левое окно
+  function getNumberOfActiveUsers() {
+    return users.filter(function (user) {
+      return user.status === 'active';
+    }).length;
+  }
+
 }();
