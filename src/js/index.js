@@ -118,6 +118,13 @@ void function () {
 
   });
 
+  // меняет имена пользователей в окне сообщений
+  function getMessagesByUserId(userId) {
+    return messages.filter(function (user) {
+      return user.user_id === userId;
+    });
+  }
+
   // получает пользователей в левое окно
   function getNumberOfActiveUsers() {
     return users.filter(function (user) {
