@@ -1,0 +1,674 @@
+li {
+    list-style-type: none;
+  }
+  
+  ul {
+    margin-left: 0;
+    /* Отступ слева в браузере IE и Opera */
+    padding-left: 0;
+    /* Отступ слева в браузере Firefox, Safari, Chrome */
+  }
+  
+  /* login form */
+  
+  .login-modal {
+    cursor: move;
+    display: inline-block;
+    border: 1px solid #CCC;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    border-radius: 6px;
+    padding: 25px 7px;
+    background-image: #fff;
+    opacity: .79;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .brand-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.3em;
+  }
+  
+  .input-field {
+    width: 250px;
+    height: auto;
+    margin: 8px auto;
+    border: 2px solid #dfebf2;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    &:first-of-type {
+      margin-top: 20px;
+    }
+  }
+  
+  input {
+    border-width: 0;
+    width: 100%;
+    outline: none;
+    padding: 4px 15px;
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #ccc;
+    }
+  }
+  
+  .btn {
+    border: 0px;
+    background-color: transparent;
+    padding: 5px 12px;
+    width: 250px;
+    border-radius: 3px;
+  }
+  
+  .btn-sky {
+    background-color: #25c6ff;
+    color: #fff;
+  }
+  
+  .btn {
+    outline: none;
+  }
+  
+  .close-sign {
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 13px;
+    transition: color 0.3s ease;
+    &:hover, &:focus {
+      color: #ff0000;
+    }
+  }
+  
+  .to-display {
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    padding: 4px 10px;
+    width: 60px;
+    border: 2px solid  #dfebf2;
+    border-radius: 5px;
+    transition: color 0.4s ease-out, border-color 0.4s ease-out;
+    &:focus, &:hover {
+      color: #25c6ff;
+      border-color: #25c6ff;
+    }
+  }
+  
+  /* login form end */
+  
+  /* @import url(https://fonts.googleapis.com/css?family=Lato:400, 700); */
+  
+  * {
+    box-sizing: border-box;
+    &:before, &:after {
+      box-sizing: border-box;
+    }
+  }
+  
+  /* ----------------------------ТЕЛО--------------------------------------- */
+  
+  body {
+    background-image: linear-gradient(green, yellow, deepskyblue);
+    font: 14px/20px "Lato", Arial, sans-serif;
+    padding: 40px 0;
+    color: white;
+  }
+  
+  /* ----------------------------ГЛАВНЫЙ БЛОК -КОНТЕЙНЕР --------------------------------------- */
+  
+  .container {
+    /*  главный блок (контейнер) */
+    margin: 0 auto;
+    width: 890px;
+    /*  ширина всего чата */
+    background: #333333;
+    /*  фон списка пользователей */
+    border-radius: 10px;
+  }
+  
+  /* -------------------------------БЛОК ПОЛЬЗОВАТЕЛЕЙ ------------------------------------------ */
+  
+  .people-list {
+    /* распределяем и выравниваем отдельно список участников  */
+    width: 400px;
+    /*  ширина списка пользователей */
+    float: left;
+    /*  расположение списка пользователей */
+    .left-header {
+      width: 400px;
+      float: left;
+      padding-top: 15px;
+      /*  отступы  */
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid white;
+      /*  добавил белую границу чтоб было гармонично */
+    }
+  }
+  
+  .settings {
+    float: left;
+  }
+  
+  .timeonline {
+    float: left;
+    width: 150px;
+    height: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    padding-top: 0px;
+    /*  отступы  */
+    padding-left: 10px;
+  }
+  
+  .youstatus {
+    /* ваш цвет статуса online offline */
+    color: yellow;
+  }
+  
+  .people-list {
+    ul {
+      /* отступы списка пользователей от краев чата */
+      margin-top: 0px;
+      /* добавил чтоб плотно прилегало к верхней границе левого хедера */
+      padding: 20px;
+      height: 512px;
+      overflow-y: scroll;
+      /* добавление бегунка */
+      border-bottom: 2px solid white;
+      /*  добавил белую границу чтоб было гармонично */
+      li {
+        /* вертикальные расстояния между пользователями */
+        padding-bottom: 20px;
+        &:hover {
+          /* добавил выделение области пользователя при наведении */
+          background-color: #6a6c75;
+          border-radius: 20px;
+        }
+        &:active {
+          /*  Цвет букв меняется при нажатии на кнопку  */
+          background-color: #01a715;
+          border-radius: 20px;
+        }
+      }
+    }
+    img {
+      /*  размещение фотографий пользовалетей слева от текста */
+      float: left;
+    }
+    .about {
+      /*  стили класса about, теперь все выровнено в границах чата */
+      float: left;
+      margin-top: 8px;
+      /* горизонтальный отступ фото и имен пользователей */
+      padding-left: 8px;
+    }
+    .status {
+      /* цвет статуса online offline */
+      color: yellow;
+    }
+  }
+  
+  /* --------------------------------------БЛОК ЧАТА------------------------------------------ */
+  
+  .chat {
+    /* параметры чата */
+    width: 490px;
+    /* ширина истории чата */
+    float: left;
+    /* размещение панели истории чата */
+    background: #d3ffce;
+    /*  Цвет фона истории  чата*/
+    border-top-right-radius: 10px;
+    /*  верхний правый сглаженный угол истории  чата*/
+    border-bottom-right-radius: 10px;
+    /*  нижний правый сглаженный угол истории  чата*/
+    color: #3d3839;
+    /*  Цвет текста истории чата*/
+    .chat-header {
+      /* граница между хедером и историей чата*/
+      padding-left: 15px;
+      padding-right: 20px;
+      padding-bottom: 0px;
+      border-bottom: 2px solid white;
+      background: #6A6C75;
+      /* добавил другой цвет фона хедера */
+      width: 490px;
+      /* ширина блока хедера чата */
+      height: 58px;
+      img {
+        /* размещение картинки аватарки в хедере слева от текста */
+        float: left;
+      }
+      .chat-with {
+        /* характеристики текста в хедере истории чатов */
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .chat-num-messages {
+        /*  цвет текста количества сообщений в хедере истории чатов   */
+        color: #40e0d0;
+      }
+      .chat-about {
+        /* отступы текста в хедере истории чатов */
+        float: left;
+        /* левее , ближе к аватарке */
+        padding-left: 20px;
+        /* левое расстояние от аватарки до текста */
+        margin-top: 6px;
+        /* отступ текста от верхнего края блока хедера */
+      }
+    }
+    .chat-history {
+      /* характеристики окна истории чатов */
+      padding: 30px 30px 20px;
+      border-bottom: 2px solid white;
+      /* нижняя граница между историей чатов и textarea */
+      overflow-y: scroll;
+      /* добавление бегунка */
+      height: 512px;
+      /*  высота истории чата   */
+      width: 490px;
+      /* ширина блока истории чата */
+    }
+  }
+  
+
+.chat {
+    cursor: auto !important;
+}
+
+  /* -------------------------------ХЕДЕР ЧАТА (ПРАВЫЙ ХЕДЕР)------------------------------------------ */
+  .clearfix {
+    cursor: pointer;
+
+    &:after {
+    /* характеристики основного блока пользователей  */
+    visibility: hidden;
+    /* ничего */
+    display: block;
+    /* отображать как блок */
+    font-size: 0;
+    /* ничего */
+    content: " ";
+    /* так виден фон блока пользователей */
+    clear: both;
+    /* так виден фон блока пользователей */
+    height: 0;
+    /* ничего */
+    }
+  }
+  
+  /* -------------------------------БЛОК ИСТОРИИ ЧАТА------------------------------------------ */
+  
+  .chat .chat-history {
+    .message-data {
+      margin-bottom: 15px;
+      /*  расстояние от границ  блока и между сообщениями в истории чата  */
+    }
+    .message-data-time {
+      /* время сообщений в истории чата */
+      color: #a8aab1;
+      /* серый */
+      padding-left: 10px;
+      /* отступ от имени пользователя, что написал сообщение */
+    }
+    .my-message {
+      /* цвет прамоугольника вашего сообщения в чате */
+      background: #90ee90;
+    }
+    .other-message {
+      /* цвет прамоугольника вашего оппонента в чате */
+      background: #40e0d0;
+    }
+    .message {
+      /*  характеристики блоков текста в истории чатов */
+      color: white;
+      /* цвет текста в блоке */
+      padding: 18px 25px;
+      /* расстояние текста до границ блока сообщения */
+      line-height: 26px;
+      /* высота блока сообщения */
+      font-size: 16px;
+      /* размер шрифта */
+      border-radius: 20px;
+      /* окружности на углах */
+      margin-bottom: 30px;
+      /* вергтикальное расстояние между блоками сообщений */
+      width: 90%;
+      /* процент ширины блока сообщения отновительно блока */
+      position: relative;
+      /* вместе с координатами */
+      &:after {
+        /* характеристики треугольников над блоками сообщений */
+        bottom: 100%;
+        /* положение треугольника вверху блока сообщения на 100% */
+        left: 10%;
+        /* выравнивание слева треугольника над прямоугольником вашего оппонента в чате */
+        border: solid transparent;
+        /* Прозрачные границы */
+        content: " ";
+        /* без этого свойства треугольник пропадает */
+        height: 0;
+        /* ничего */
+        width: 0;
+        /* ничего */
+        position: absolute;
+        /* треугольник исчезает с места и позиционируется заново */
+        pointer-events: none;
+        /* ничего */
+        border-bottom-color: #90ee90;
+        /* цвет треугольника над прямоугольником сообщения вашего оппонента в чате */
+        border-width: 10px;
+        /* высота и ширина треугольника */
+        margin-left: -10px;
+        /* сдвиг треугольника влево */
+      }
+    }
+    .other-message:after {
+      border-bottom-color: #40e0d0;
+      /* цвет треугольника над прямоугольником вашего сообщения в чате */
+      left: 92%;
+      /* выравнивание треугольника над прямоугольником вашего сообщения в чате */
+    }
+  }
+  
+  .float-right {
+    /* размещение блоков сообщений по разные стороны друг от друга */
+    float: right;
+  }
+  
+  .align-right {
+    /* размещение имен учатников по разные стороны друг от друга */
+    text-align: right;
+  }
+  
+  /* -------------------------------БЛОК textarea (right footer)----------------------------------- */
+  
+  .chat .chat-message {
+    /* Отступы textarea */
+    padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    background: #6A6C75;
+    /* добавил другой цвет фона в котором textarea */
+    border-bottom-right-radius: 10px;
+    /* скорректировал нижний округлый угол */
+    textarea {
+      /* характеристики textarea */
+      width: 100%;
+      /* ширина чата в процентах относительно уже заданной */
+      padding: 10px 20px;
+      /* отступы текста от границ textarea */
+      margin-bottom: 10px;
+      /* нижний отступ textarea от внешних границ */
+      border-radius: 5px;
+      /* округлость углов textarea */
+      background: #53f3e3;
+      /* фон */
+      color: DarkBlue;
+      /* цвет шрифта */
+      font: 18px/22px "Lato", Arial, sans-serif;
+      /* параметры шрифта */
+      resize: none;
+      /* запрет ручного изменения размера поля textarea */
+    }
+    button {
+      /* характеристики кнопки */
+      float: right;
+      /* кнопка справа */
+      color: #40e0d0;
+      /* цвет самой кнопки отправить (не нажатой)  */
+      font-size: 16px;
+      /* размер шрифта кнопки */
+      text-transform: uppercase;
+      /* большими буквами */
+      border: none;
+      /* нет границы */
+      cursor: pointer;
+      /* курсор изменяется при наведении на кнопку */
+      font-weight: bold;
+      /* жирный текст кнопки */
+      background: #6a6c75;
+      /* цвет фона кнопки отправить  */
+      transition-duration: .5s;
+      &:hover {
+        /*  Цвет букв меняется при навелении курсора на кнопку  */
+        color: #0000ff;
+        /*  Цвет букв меняется при навелении курсора на кнопку  */
+        -webkit-transform: scale(1.2);
+        transition-duration: .5s;
+        /*  увеличение при навелении курсора на кнопку  */
+      }
+      &:active {
+        /*  Цвет букв меняется при нажатии на кнопку  */
+        color: #01a715;
+      }
+    }
+  }
+  
+  /* ------------------------ДАЛЕЕ СТИЛИЗАЦИЯ ИКОНОК FONT-AWESOME---------------------------------- : */
+  
+  .people-list {
+    .fa-comment-o {
+      /* стили иконки сообщения */
+      position: relative;
+      right: -40px;
+      /* сдвиг иконки поиска влево */
+      font-size: 40px;
+      color: #40e0d0;
+      margin-top: 8px;
+    }
+    .fa-cog {
+      /* стили иконки настроек (settings) */
+      position: relative;
+      right: -100px;
+      /* сдвиг иконки поиска влево */
+      font-size: 40px;
+      color: #40e0d0;
+      margin-top: 10px;
+    }
+  }
+  
+  .chat .chat-header .fa-star {
+    /* стили иконки звезда */
+    float: right;
+    color: Aqua;
+    font-size: 20px;
+    margin-top: 12px;
+  }
+  
+  .fa-star {
+    /* стили иконки звезда */
+    cursor: pointer;
+    /* меняется курсор при наведении (тут срабатывает лишь отдельно) */
+  }
+  
+  .chat {
+    .fa-star:active {
+      color: MediumBlue;
+    }
+    .chat-message {
+      .fa-paperclip, .fa-file-image-o {
+        /* стили иконок прикрепления файлов */
+        font-size: 18px;
+        color: #53f3e3;
+        /* изменил цвет на облачный */
+        cursor: pointer;
+        /* меняется курсор при наведении */
+      }
+      .fa-paperclip:active, .fa-file-image-o:active {
+        color: MediumBlue;
+      }
+    }
+  }
+  
+  .online {
+    /* цвет иконок online в списке учатников */
+    color: #86bb71;
+    /* зеленые */
+  }
+  
+  .offline {
+    /* цвет иконок offline в списке учатников */
+    color: #e38968;
+    /* оранжевые */
+  }
+  
+  .me {
+    /* цвет иконок для личных сообщений */
+    color: #86bb71;
+    /* зеленые */
+  }
+  
+  .online, .offline, .me {
+    /* выравнивание online offline иконок */
+    margin-right: 5px;
+    font-size: 8px;
+  }
+  
+  /* ---------------------------- СТИЛИ ПОЛОС ПРОКРУТКИ ------------------------------ */
+  
+  ::-webkit-scrollbar {
+    width: 15px;
+    height: 5px;
+  }
+  
+  /* высота, ширина */
+  
+  ::-webkit-scrollbar-button {
+    background-color: #6a6c75;
+  }
+  
+  /* кнопки */
+  
+  ::-webkit-scrollbar-track-piece {
+    background-color: #40e0d0;
+  }
+  
+  /*  фон полосы */
+  
+  ::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #6a6c75;
+    border-radius: 5px;
+  }
+  
+  /*  бегунок */
+  /* ------------------------ ПРАВОЕ МЕНЮ КНОПОК ---------------------------------------- */
+  
+  input[type="radio"] {
+    display: none;
+    /*  скрывает радио-кнопки */
+  }
+  
+  label {
+    &.threebuttons {
+      /* блок с кнопками переключения  */
+      display: inline-flex;
+      /* БЛОКИ РАЗМЕЩЕНЫ В ЛИНИЮ разъезжается без этого стиля  */
+      padding: 33px 69px 33px 69px;
+      /* размеры гвнешних границ иконок-кнопок  */
+      float: right;
+      color: #40e0d0;
+      /* цвет иконок-кнопок  */
+      font-size: 22px;
+      /* величина шрифта иконок-кнопок  */
+      background: #6a6c75;
+      /* цвет фона иконок-кнопок  */
+      border-radius: 10px;
+      /* скорректировал верхний округлый угол */
+      border: 2px solid white;
+      &:hover {
+        color: #0000ff;
+        /* цвет при наведении мышкой на иконки-кнопки */
+        background: #333333;
+        /*  фон блока при наведения на блок кнопки-иконки */
+      }
+    }
+    &[for="two"].threebuttons, &[for="three"].threebuttons {
+      margin-left: -4px;
+      /*  выравникание блоков-кнопок  */
+    }
+  }
+  
+  input[type="radio"]:checked + label {
+    color: #00cd0a;
+    /*  цвет активной кнопки-иконки */
+  }
+  
+  /* ------------------------ отображение новых непрочитанных сообщений ---------------------------------------- */
+  
+  .come_message {
+    float: left;
+    margin-left: 150px;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+  }
+  
+  .countMe {
+    position: absolute;
+    height: 19px;
+    width: 27px;
+    top: 13px;
+    /* отступ сверху до окружности */
+    left: 95px;
+    /* отступ слева до окружности */
+    font-size: 16px;
+    /* размер шрифта */
+    border: 4px solid #6A6C75;
+    /* серый цвет границы */
+    border-radius: 55px;
+    /* округлые углы */
+    padding-left: 1px;
+    /* отступы от числа до границы окружноти */
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 18px;
+    margin: 2px;
+    background-color: yellow;
+    /* фон окружности */
+    font-family: 'bowlby-one';
+    color: grey;
+  }
+  
+  /* ------------------------ отображения информации о введенном сообщении ---------------------------------------- */
+  
+  .messageinfo {
+    margin-left: 20px;
+    width: 280px;
+  }
+  
+  .displaysympols, .displayletters, .displayspaces, .displaypunctuation {
+    display: block;
+    float: right;
+    color: yellow;
+  }
+  
+  /* ------------------------ отображение общего количества пользователей онлайн ---------------------------------------- */
+  
+  .onlinemembers {
+    width: 400px;
+    height: 150px;
+    border-bottom: 2px solid white;
+    padding-left: 84px;
+    padding-top: 110px;
+    margin-top: 0px;
+    margin-left: 0px;
+    color: yellow;
+    margin-bottom: 0px;
+  }
