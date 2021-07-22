@@ -10,6 +10,9 @@ void function () {
 
   document.addEventListener( "DOMContentLoaded", function() {
 
+  // размытость пока не залогинишься:
+  //document.querySelector('body > div.container.clearfix').style.filter = 'blur('+blurVal+'px)';
+
   document.querySelector('body > div.login-modal').style.display = "none";   // для отсутствия окна "логина и пароля"
   blurVal = 0;                                                               // закрытие чата размытием
 
