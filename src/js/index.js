@@ -83,7 +83,36 @@ void function () {
     requestUsers.onerror = function() {
     // Обработчик ответа в случае неудачного соеденения
     };
-     requestUsers.send();
+    requestUsers.send();
+
+    document.querySelector('body > div.login-modal > button').addEventListener('click', function () {
+      let requestLogin = new XMLHttpRequest();
+      requestLogin.open('POST', 'https://studentschat.herokuapp.com/users/register', true);
+
+      loggedUser = document.querySelector('body > div.login-modal > div:nth-child(2) > input').value;   // селектор отсчета времени после залогивания
+
+      requestLogin.onerror = function() {};
+
+      requestLogin.onload = function() {
+        //document.querySelector('body > div.container.clearfix').style.visibility = "visible";
+        let i = blurVal;
+        document.querySelector('body > div.login-modal').style.display = "none";
+        let blurEffectInterval = setInterval(function () {
+          if (!i) {
+            clearInterval(blurEffectInterval);
+          }
+          document.querySelector('body > div.container.clearfix').style.filter = 'blur('+i--+'px)';                    
+        }, 50);
+        document.querySelector('.to-display').innerText = 'Logout';
+        LOGIN = true;
+
+      };
+      requestLogin.setRequestHeader('Content-Type', 'application/json');
+
+      requestLogin.send(JSON.stringify({
+          username: loggedUser
+      }));
+  });    
 
   });
 
