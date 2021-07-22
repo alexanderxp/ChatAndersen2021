@@ -112,7 +112,9 @@ void function () {
       requestLogin.send(JSON.stringify({
           username: loggedUser
       }));
-  });    
+  });  
+  
+  document.querySelector('body > div.container.clearfix > div.chat > div.chat-history > ul > li:nth-child(1) > div.message.my-message').innerText = 'Здравствуйте. (Это встроенное сообщение)';
 
   });
 
