@@ -132,4 +132,12 @@ void function () {
     }).length;
   }
 
+  // прописывает работу кнопки закрывания окна "логина и пароля"
+  let closeBtn = document.querySelector('.close-sign');
+
+  closeBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('.login-modal').style.display =  'none';
+  });
+
 }();
