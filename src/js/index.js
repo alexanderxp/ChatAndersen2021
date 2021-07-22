@@ -15,6 +15,13 @@ void function () {
 
   document.querySelector('body > div.login-modal').style.display = "none";   // для отсутствия окна "логина и пароля"
   blurVal = 0;                                                               // закрытие чата размытием
+ 
+  let requestUsers = new XMLHttpRequest();
+  let requestMessages = new XMLHttpRequest();
+  requestUsers.open('GET', 'https://studentschat.herokuapp.com/users', true);
+  requestMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+
+
 
 });
 
