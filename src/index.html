@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="En-Eu">
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-        <title>Webpack starter</title>
-        <script src="http://localhost:35729/livereload.js"></script>
-        <link rel="stylesheet" href="./sass/font-awesome.min.scss">
-        <link rel="stylesheet" href="./sass/styles.scss"> 
-    </head>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Webpack starter</title>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <link rel="stylesheet" href="./sass/font-awesome.min.scss">
+    <link rel="stylesheet" href="./sass/styles.scss"> 
+  </head>
 <body>
-    <div class="to-display">Login</div>    <!-- добавлено окно логина -->
-	<div class="container clearfix">
-		<div class="people-list" id="people-list">
+  <div class="to-display">Login</div>    <!-- добавлено окно логина -->
+	  <div class="container clearfix">
+		  <div class="people-list" id="people-list">
 <!-- Левый хедер  -->			
 			<div class = "left-header">
-					<img src="images/logoDNA.png" alt="logo" title="Логотип чата">
-				
+				<img src="images/logoDNA.png" alt="logo" title="Логотип чата">
 				<div class="timeonline">
 					<span class = "youstatus" title = "время пребывания онлайн"><i class="fa fa-circle online"></i>online <span>1</span> секунд</span>
 					<p>
@@ -24,16 +23,11 @@
 					</p>
 					</div>
 					<div class = "come_message">
-						
-							<i class="fa fa-comment-o" aria-hidden="true" title="отображение личных сообщений"></i>
-						
+						<i class="fa fa-comment-o" aria-hidden="true" title="отображение личных сообщений"></i>
 						<span class="countMe" title="количество сообщений пользователей" ></span>
 					</div>
-				
-				 <div class = "settings">
-					 
-					 	<i class="fa fa-cog" aria-hidden="true" title="редактирование персональной информации"></i>
-					 
+				<div class = "settings"> 
+					<i class="fa fa-cog" aria-hidden="true" title="редактирование персональной информации"></i>
 				</div>
 		   </div>
 <!-- Список пользователей -->	
@@ -42,8 +36,7 @@
 		   </div>
 			<ul class="list" id="users-list" title="отображение списка участников">
 			</ul>
-			<div class = "messageinfo">
-				
+			<div class = "messageinfo">		
 			</div>
 		</div>
 		
@@ -67,15 +60,15 @@
 
 <!-- ХЕДЕР ВВОДА СООБЩЕНИЙ-->	
 			
-			<div class="chat-header clearfix" >
+		  <div class="chat-header clearfix" >
 				<img src="images/01.png" alt="avatar">
-					<div class="chat-about">
-						<div class="chat-with"></div>
-						<div class="chat-num-messages">
-                            <span>1</span>
-                            сообщений
-                        </div>
-					</div>
+				<div class="chat-about">
+				  <div class="chat-with"></div>
+					<div class="chat-num-messages">
+            <span>1</span>
+            сообщений
+          </div>
+				</div>
 				<i class="fa fa-star"></i>
 			</div>
 				
@@ -85,21 +78,12 @@
 				<ul id="chat-container">
 					<li>
 						<div class="message-data">
-                            <span class="message-data-name"><i class="fa fa-circle online"></i>Test User</span>
-                            <span class="message-data-time"></span>
+              <span class="message-data-name"><i class="fa fa-circle online"></i>Test User</span>
+              <span class="message-data-time"></span>
 						</div>
 						<div class="message my-message">
 						</div>
 					</li>
-<!-- 				<li class="clearfix">
-						<div class="message-data align-right">
-							<span class="message-data-time">09:11 Сегодня</span> &nbsp; &nbsp;
-							<span class="message-data-name">Вы</span> <i class="fa fa-circle me"></i>
-						</div>
-						<div class="message other-message float-right">Я тоже)
-						</div>
-					</li> -->
-
 				</ul>
 			</div>
 <!-- ТЕКСТОВОЕ ПОЛЕ ВВОДА СООБЩЕНИЙ -->			
@@ -113,26 +97,24 @@
 			<i class="fa fa-link" aria-hidden="true" title = "элемент форматирования текста"></i><br>
 			<br>
 			<textarea name="message-to-send" maxlength="500" id="message-to-send" placeholder="Ваше сообщение" rows="3" title = "поле для ввода текста"></textarea>
-				<i class="fa fa-paperclip" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-file-image-o"></i>
-				<button title = "кнопка отправки сообщений" id="send-message">ОТПРАВИТЬ</button>
+			<i class="fa fa-paperclip" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="fa fa-file-image-o"></i>
+			<button title = "кнопка отправки сообщений" id="send-message">ОТПРАВИТЬ</button>
 		</div>
-    </div>
+  </div>
 </div>
 <!-- добавлено login form -->
 <div class="login-modal">
-        <h3 class="brand-name">Login(& Register) window</h3>
-        <div class="input-field">
-            <input type="email" class="id" placeholder="E-mail address / ID" >
-        </div>
-        <div class="input-field">
-        <input type="password" class="password" placeholder="Password"></div>
-        
-        <button type="submit" class="btn btn-sky">Login</button>
-        <br><br>
-        <button type="submit" class="btn btn-sky">Register</button>
-        
-        <div class="close-sign">X</div>
+  <h3 class="brand-name">Login(& Register) window</h3>
+  <div class="input-field">
+    <input type="email" class="id" placeholder="E-mail address / ID" >
+  </div>
+  <div class="input-field">
+    <input type="password" class="password" placeholder="Password"></div>
+    <button type="submit" class="btn btn-sky">Login</button>
+    <br><br>
+    <button type="submit" class="btn btn-sky">Register</button> 
+  <div class="close-sign">X</div>
 </div>
 <!-- login form END-->
 </body>
