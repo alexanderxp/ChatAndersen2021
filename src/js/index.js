@@ -10,16 +10,21 @@ void function () {
     let blurVal = 15, LOGIN = false, currentUserChatId = 0, messages = [], users = [], loggedUser = '';
 
 
+    function toMMSS (seconds) {                     // функция счета секунд online
+        let date = new Date(null);
+        date.setSeconds(seconds);
+        return date.toISOString().substr(14, 5);
+    }
 
     document.addEventListener( "DOMContentLoaded", function() {
 
-      
+
         
 		// размытость пока не залогинишься:
 		document.querySelector('body > div.container.clearfix').style.filter = 'blur('+blurVal+'px)';
         
-
-
+        let timerElement = document.querySelector('.timeonline > .youstatus > .fa + span');              // селектор для функции подсчета секунд online
+        
 
         let requestUsers = new XMLHttpRequest();
         let requestMessages = new XMLHttpRequest();
@@ -110,6 +115,9 @@ void function () {
                 }, 50);
                 document.querySelector('.to-display').innerText = 'Logout';
                 LOGIN = true;
+                setInterval(function () {                                          // функция для подсчета секунд online
+                    timerElement.innerText = +timerElement.innerText + 1;
+                }, 1000);
 
             };
             requestLogin.setRequestHeader('Content-Type', 'application/json');
