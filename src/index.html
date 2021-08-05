@@ -107,15 +107,82 @@
 <div class="login-modal">
   <h3 class="brand-name">Login(& Register) window</h3>
   <div class="input-field">
-    <input type="email" class="id" placeholder="E-mail address / ID" >
+    <input type="email" id="username" class="id" placeholder="E-mail address / ID" >
   </div>
   <div class="input-field">
-    <input type="password" class="password" placeholder="Password"></div>
-    <button type="submit" class="btn btn-sky">Login</button>
+    <input type="password" id="password" class="password" placeholder="Password"></div>
+    <button type="submit" class="btn btn-sky" onclick="isClickAuto()">Login</button>
     <br><br>
-    <button type="submit" class="btn btn-sky">Register</button> 
+    <button type="submit" class="btn btn-sky" onclick="isClickReg()" >Register</button> 
   <div class="close-sign">X</div>
 </div>
 <!-- login form END-->
+<script>
+  function isClickReg() {
+      const userName = document.getElementById('username').value;        
+      const password = document.getElementById('password').value;        
+      let formData = new FormData(document.forms.form__chat);
+      let xhr = new XMLHttpRequest();
+
+      xhr.open("POST", "https://studentschat.herokuapp.com/users/register");
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      xhr.send(JSON.stringify({ username: userName, password: password}));
+
+      xhr.onload = () => alert(xhr.response);
+  }
+
+  function isClickAuto() {
+
+    const userName = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    var dateStartSession = new Date();
+    let formData = new FormData(document.forms.form__chat);
+    let xhr = new XMLHttpRequest();
+    let id_user = '';
+    xhr.open("GET", "https://studentschat.herokuapp.com/users");
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.responseType = 'json';
+
+    xhr.onload = () => {
+      let flag = false;
+      let count = 0;
+      if (xhr.status >= 400) {
+        alert("status>400")
+      } else {
+        // alert(xhr.response.length);
+        for (let i = 0; i < xhr.response.length; i++) {
+            if (xhr.response[i].username == userName && xhr.response[i].password == password) {
+                flag = true;
+                let date = new Date(Date.now() + 86400e3);
+                date = date.toUTCString();
+                id_user = xhr.response[i].user_id;
+                document.cookie = "id_user=" + id_user + "; expires=" + date;
+                document.cookie = "user=" + xhr.response[i].username + "; expires=" + date;
+                document.cookie = "date=" + dateStartSession + "; expires=" + date;
+                // alert(id_user);
+                break;
+            } else {
+                count++;
+            }
+        }
+        if (flag) {
+            document.location.href = "index.html";
+        } else {
+            alert("Такого пользователя не существует!!!");
+        }
+    }
+}
+
+xhr.onerror = () => alert("Error!");
+
+xhr.send();
+}
+
+
+
+</script>
+
+
 </body>
 </html>
