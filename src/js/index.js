@@ -192,4 +192,13 @@ void function () {
         document.querySelector('.login-modal').style.display =  'none';
     });
 
+  // прописывает работу кнопки 'Login'  и кнопки 'Logout'
+    document.querySelector('.to-display').addEventListener('click', function () {
+      if (LOGIN) {
+          this.innerText = 'Login';
+          document.querySelector('body > div.container.clearfix').style.filter = 'blur('+blurVal+'px)';
+          document.querySelector('div.login-modal').style.display = 'inline-block';
+      }
+  }); 
+
 }();
