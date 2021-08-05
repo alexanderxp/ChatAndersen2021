@@ -134,7 +134,7 @@ void function () {
                 alert('Вы ввели пустое сообщение.');
                 return;
             }
-            var messageFragment = document.createElement('li');
+            let messageFragment = document.createElement('li');
             messageFragment.className = 'clearfix';
             messageFragment.innerHTML = 
             '<div class="message-data align-right">' +
@@ -145,7 +145,7 @@ void function () {
             '</div>';
             document.getElementById('chat-container').appendChild(messageFragment);
             
-            var requestMessagePost = new XMLHttpRequest();
+            let requestMessagePost = new XMLHttpRequest();
             requestMessagePost.open('POST', 'https://studentschat.herokuapp.com/messages', true);
             
             
