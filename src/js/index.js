@@ -25,6 +25,8 @@ void function () {
         
         let timerElement = document.querySelector('.timeonline > .youstatus > .fa + span');              // селектор для функции подсчета секунд online
         
+        // отображение времени ( часы и минуты ) в левом верхнем углу .
+        document.querySelector('.timeonline > p > span').innerText = ((new Date).getHours() + ':' + (new Date).getMinutes());
 
         let requestUsers = new XMLHttpRequest();
         let requestMessages = new XMLHttpRequest();
@@ -171,7 +173,7 @@ void function () {
         });
     });
 
-			  
+             
 	// меняет имена пользователей в окне сообщений
     function getMessagesByUserId(userId) {
         return messages.filter(function (user) {
