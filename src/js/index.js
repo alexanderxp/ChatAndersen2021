@@ -10,16 +10,23 @@ void function () {
     let blurVal = 15, LOGIN = false, currentUserChatId = 0, messages = [], users = [], loggedUser = '';
 
 
+    function toMMSS (seconds) {                     // функция счета секунд online
+        let date = new Date(null);
+        date.setSeconds(seconds);
+        return date.toISOString().substr(14, 5);
+    }
 
     document.addEventListener( "DOMContentLoaded", function() {
 
-      
+
         
 		// размытость пока не залогинишься:
 		document.querySelector('body > div.container.clearfix').style.filter = 'blur('+blurVal+'px)';
         
-
-
+        let timerElement = document.querySelector('.timeonline > .youstatus > .fa + span');              // селектор для функции подсчета секунд online
+        
+        // отображение времени ( часы и минуты ) в левом верхнем углу .
+        document.querySelector('.timeonline > p > span').innerText = ((new Date).getHours() + ':' + (new Date).getMinutes());
 
         let requestUsers = new XMLHttpRequest();
         let requestMessages = new XMLHttpRequest();
@@ -90,9 +97,75 @@ void function () {
         };
         requestUsers.send();
 
+        requestMessages.onload = function() {      // загрузка сообщений пользователей ( но она не работает )
+
+          members = null;
+      
+           var loadMessages = new XMLHttpRequest();
+           loadMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+
+            if (loadMessages.readyState != 4) return;
+            if (loadMessages.status != 200) {
+              alert(loadMessages.status + ': ' + loadMessages.statusText);
+            }
+            if (requestMessages.status >= 200 && requestMessages.status < 400) {
+            // Обработчик успешного ответа 
+            console.log('успешно');
+            let response = requestMessages.responseText;
+            
+            JSON.parse(response).forEach(
+              loadMessages.onreadystatechange = function (user, i) {
+                    let divChatWithElement = document.getElementsByClassName('chat-with')[0];
+                    divChatWithElement.innerText = user.chatroom_id;
+                    document.querySelector('body > div.container.clearfix > div.chat > div.chat-history > ul > li:nth-child(1) > div.message.my-message').innerText = user.message;
+                    console.log('успешно');
+                  }
+            );
+            messages = JSON.parse(response);
+            document.querySelector('.countMe').innerText = messages.length;   // селектор подсчета сообщений всех пользователей чата 
+            } else {
+                   try {
+                       members = JSON.parse(loadMessages.responseText);
+                   } catch (e) {
+                       alert("Некорректный ответ " + e.message);
+                   }
+                   console.log(members);
+            }
+        };
+        requestMessages.onerror = function() {
+            // Обработчик ответа в случае неудачного соеденения
+        };
+        requestMessages.send();
+        
+        function loadMembers() {   //  с урока
+
+          members = null;
+      
+           var loadMessages = new XMLHttpRequest();
+           loadMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+      
+            loadMessages.onreadystatechange = function () {
+      
+               if (loadMessages.readyState != 4) return;
+               if (loadMessages.status != 200) {
+                   alert(loadMessages.status + ': ' + loadMessages.statusText);
+               } else {
+                   try {
+                       members = JSON.parse(loadMessages.responseText);
+                   } catch (e) {
+                       alert("Некорректный ответ " + e.message);
+                   }
+                   console.log(members);
+               }
+            }
+      
+            loadMessages.send();
+        }
+        //loadMembers();
+		
         document.querySelector('body > div.login-modal > button').addEventListener('click', function () {
             let requestLogin = new XMLHttpRequest();
-            requestLogin.open('POST', 'https://studentschat.herokuapp.com/users/register', true);
+            requestLogin.open('POST', 'https://studentschat.herokuapp.com/users/login', true);
 
             loggedUser = document.querySelector('body > div.login-modal > div:nth-child(2) > input').value;   // селектор отсчета времени после залогивания
 
@@ -110,12 +183,22 @@ void function () {
                 }, 50);
                 document.querySelector('.to-display').innerText = 'Logout';
                 LOGIN = true;
+                setInterval(function () {                                          // функция для подсчета секунд online
+                    timerElement.innerText = +timerElement.innerText + 1;
+                }, 1000);
 
             };
             requestLogin.setRequestHeader('Content-Type', 'application/json');
 
-            requestLogin.send(JSON.stringify({
-                username: loggedUser
+            // текущая дата для  requestLogin.send(JSON.stringify({    ---    let date = new Date().toISOString();
+            let date = new Date().toISOString();
+
+            // let userName = user;
+
+            // let messUser = document.getElementById('messages').value;
+
+            requestLogin.send(JSON.stringify({     // POST    https://studentschat.herokuapp.com/users/login    403 (Forbidden)
+              message: messages, username: loggedUser    // datetime: date, message: messages, username: loggedUser
             }));
         });
 
@@ -126,7 +209,7 @@ void function () {
                 alert('Вы ввели пустое сообщение.');
                 return;
             }
-            var messageFragment = document.createElement('li');
+            let messageFragment = document.createElement('li');
             messageFragment.className = 'clearfix';
             messageFragment.innerHTML = 
             '<div class="message-data align-right">' +
@@ -137,7 +220,7 @@ void function () {
             '</div>';
             document.getElementById('chat-container').appendChild(messageFragment);
             
-            var requestMessagePost = new XMLHttpRequest();
+            let requestMessagePost = new XMLHttpRequest();
             requestMessagePost.open('POST', 'https://studentschat.herokuapp.com/messages', true);
             
             
@@ -153,7 +236,7 @@ void function () {
             };
             requestMessagePost.setRequestHeader('Content-Type', 'application/json');
             
-            requestMessagePost.send(JSON.stringify({
+            requestMessagePost.send(JSON.stringify({    // POST https://studentschat.herokuapp.com/messages 403 (Forbidden)
                 datetime:(new Date()).toJSON(),
                 message: document.getElementById('message-to-send').value,
                 user_id: currentUserChatId
@@ -163,7 +246,7 @@ void function () {
         });
     });
 
-			  
+             
 	// меняет имена пользователей в окне сообщений
     function getMessagesByUserId(userId) {
         return messages.filter(function (user) {
@@ -191,5 +274,15 @@ void function () {
         e.preventDefault();
         document.querySelector('.login-modal').style.display =  'none';
     });
+
+  // прописывает работу кнопки 'Login'  и кнопки 'Logout'
+    document.querySelector('.to-display').addEventListener('click', function () {
+      if (LOGIN) {
+          this.innerText = 'Login';
+          document.querySelector('body > div.container.clearfix').style.filter = 'blur('+blurVal+'px)';
+          document.querySelector('div.login-modal').style.display = 'inline-block';
+      }
+
+  }); 
 
 }();
