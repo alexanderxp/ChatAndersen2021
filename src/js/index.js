@@ -97,28 +97,71 @@ void function () {
         };
         requestUsers.send();
 
-        requestMessages.onload = function() {
+        requestMessages.onload = function() {      // загрузка сообщений пользователей ( но она не работает )
+
+          members = null;
+      
+           var loadMessages = new XMLHttpRequest();
+           loadMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+
+            if (loadMessages.readyState != 4) return;
+            if (loadMessages.status != 200) {
+              alert(loadMessages.status + ': ' + loadMessages.statusText);
+            }
             if (requestMessages.status >= 200 && requestMessages.status < 400) {
-            // Обработчик успешного ответа
+            // Обработчик успешного ответа 
+            console.log('успешно');
             let response = requestMessages.responseText;
             
             JSON.parse(response).forEach(
-                function (user, i) {
+              loadMessages.onreadystatechange = function (user, i) {
                     let divChatWithElement = document.getElementsByClassName('chat-with')[0];
                     divChatWithElement.innerText = user.chatroom_id;
                     document.querySelector('body > div.container.clearfix > div.chat > div.chat-history > ul > li:nth-child(1) > div.message.my-message').innerText = user.message;
-                }
+                    console.log('успешно');
+                  }
             );
             messages = JSON.parse(response);
             document.querySelector('.countMe').innerText = messages.length;   // селектор подсчета сообщений всех пользователей чата 
             } else {
-            // Обработчик ответа в случае ошибки
+                   try {
+                       members = JSON.parse(loadMessages.responseText);
+                   } catch (e) {
+                       alert("Некорректный ответ " + e.message);
+                   }
+                   console.log(members);
             }
         };
         requestMessages.onerror = function() {
             // Обработчик ответа в случае неудачного соеденения
         };
-        requestMessages.send();		
+        requestMessages.send();
+        
+        function loadMembers() {   //  с урока
+
+          members = null;
+      
+           var loadMessages = new XMLHttpRequest();
+           loadMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+      
+            loadMessages.onreadystatechange = function () {
+      
+               if (loadMessages.readyState != 4) return;
+               if (loadMessages.status != 200) {
+                   alert(loadMessages.status + ': ' + loadMessages.statusText);
+               } else {
+                   try {
+                       members = JSON.parse(loadMessages.responseText);
+                   } catch (e) {
+                       alert("Некорректный ответ " + e.message);
+                   }
+                   console.log(members);
+               }
+            }
+      
+            loadMessages.send();
+        }
+        //loadMembers();
 		
         document.querySelector('body > div.login-modal > button').addEventListener('click', function () {
             let requestLogin = new XMLHttpRequest();
